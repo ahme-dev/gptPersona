@@ -9,9 +9,16 @@
 			@tailwind base;
 			@tailwind components;
 			@tailwind utilities;
+			@layer utilities {
+				.flex-center {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+			}
 
 			body {
-				background-color: #efefef;
+				background-color: #fefefe;
 				color: #121212;
 			}
 			* {
