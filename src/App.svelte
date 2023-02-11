@@ -23,7 +23,7 @@
 			>
 		</div>
 	</nav>
-	<main class="p-8 grow flex items-center justify-center">
+	<main class="grow flex items-center justify-center">
 		<div
 			class="flex-center gap-4 border border-black shadow-sm shadow-red-600 p-4 rounded-lg"
 		>
