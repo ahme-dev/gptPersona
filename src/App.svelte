@@ -4,13 +4,13 @@
 	import PersonaIcon from "./lib/PersonaIcon.svelte";
 </script>
 
-<div class="min-h-screen min-w-screen flex flex-col">
+<div class="min-h-screen min-w-screen flex flex-col select-none">
 	<nav class="p-8 flex flex-row justify-between w-full">
 		<h1 class="text-2xl font-bold">
 			gpt<span class="text-red-600">Persona</span>
 		</h1>
 		<div class="flex flex-row gap-4">
-			<PersonaIcon title={"FU"} current={true} />
+			<PersonaIcon title={"FU"} current={false} />
 			<PersonaIcon title={"A"} current={true} />
 		</div>
 		<div>
@@ -18,7 +18,8 @@
 				target="_blank"
 				rel="noreferrer"
 				href="https://github.com/ahmeddots/gptpersona"
-				class="text-lg font-bold">Contribute</a
+				class="text-lg font-bold active:text-red-600 transition-all"
+				>Contribute</a
 			>
 		</div>
 	</nav>
