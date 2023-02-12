@@ -1,4 +1,5 @@
-import { persisted } from "svelte-local-storage-store";
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 let defaultEntry = {
 	fullname: "John Doe",
@@ -16,9 +17,29 @@ let defaultEntry = {
 	// erotic: false,
 };
 
-export const personas = persisted<typeof defaultEntry[]>("personas", [
-	defaultEntry,
-]);
+export const usePersonasStore = create<{
+	index: number;
+	list: typeof defaultEntry[];
+	getCurrent: () => typeof defaultEntry;
+	setCurrent: (changeTo: typeof defaultEntry) => void;
+}>()(
+	persist(
+		(set, get) => ({
+			index: 0,
+			list: [{ ...defaultEntry }],
+			getCurrent: () => get().list[get().index],
+			setCurrent: (changeTo: typeof defaultEntry) =>
+				set((state) => ({
+					...state,
+					list: state.list.map((el, i) => (i === state.index ? changeTo : el)),
+				})),
+		}),
+		{
+			name: "personas-storage",
+			storage: createJSONStorage(() => localStorage),
+		},
+	),
+);
 
 export function getPersonaPrompt(persona: typeof defaultEntry) {
 	let prompt = `
@@ -51,7 +72,7 @@ ${
 		: null
 } 
 
-Always stay in character to anything I say. When you're breaking character I'll warn you by saying ${
+Always stay in character to anything I say and never regress back to your normal gpt style. When you're breaking character I'll warn you by saying ${
 		persona.pullPhrase
 	}, and you'll redo and correct your previous reply, in character, and learn from the mistake to speak more in character. You must try even harder to always stay in character and not get warned again.`;
 
