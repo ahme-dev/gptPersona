@@ -1,18 +1,18 @@
-import { usePersonasStore } from "../stores";
+import { useSnapshot } from "valtio";
+import { appState, personasState } from "../state";
 import { FormInput } from "./FormInput";
-import { FormTextarea } from "./FormTextarea";
 
 export function Form() {
-	const current = usePersonasStore((state) => state.getCurrent);
-	const setCurrent = usePersonasStore((state) => state.setCurrent);
+	const personas = useSnapshot(personasState);
+	const app = useSnapshot(appState);
 
 	return (
 		<div class="flex flex-col gap-2">
-			<h1>helo</h1>
+			<h1>helo, {personas[app.index].fullname}</h1>
 			<FormInput
 				title={"Full Name"}
-				value={current().fullname}
-				setValue={(val) => setCurrent({ ...current(), fullname: val })}
+				value={personas[app.index].fullname}
+				setValue={(val) => (personasState[app.index].fullname = val)}
 			/>
 			{/* 
 			<FormInput title={"Prefix"} value={personas[0].prefix} />

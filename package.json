@@ -10,7 +10,7 @@
 	},
 	"dependencies": {
 		"preact": "^10.11.2",
-		"zustand": "^4.3.3"
+		"valtio": "^1.10.1"
 	},
 	"devDependencies": {
 		"@preact/preset-vite": "^2.4.0",

@@ -1,5 +1,4 @@
-import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
+import { proxy } from "valtio";
 
 let defaultEntry = {
 	fullname: "John Doe",
@@ -17,29 +16,10 @@ let defaultEntry = {
 	// erotic: false,
 };
 
-export const usePersonasStore = create<{
-	index: number;
-	list: typeof defaultEntry[];
-	getCurrent: () => typeof defaultEntry;
-	setCurrent: (changeTo: typeof defaultEntry) => void;
-}>()(
-	persist(
-		(set, get) => ({
-			index: 0,
-			list: [{ ...defaultEntry }],
-			getCurrent: () => get().list[get().index],
-			setCurrent: (changeTo: typeof defaultEntry) =>
-				set((state) => ({
-					...state,
-					list: state.list.map((el, i) => (i === state.index ? changeTo : el)),
-				})),
-		}),
-		{
-			name: "personas-storage",
-			storage: createJSONStorage(() => localStorage),
-		},
-	),
-);
+export const appState = proxy({
+	index: 0,
+});
+export const personasState = proxy([defaultEntry]);
 
 export function getPersonaPrompt(persona: typeof defaultEntry) {
 	let prompt = `

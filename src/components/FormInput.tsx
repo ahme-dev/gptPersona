@@ -11,7 +11,8 @@ export function FormInput(props: {
 			<input
 				type="text"
 				name={props.title.toLowerCase()}
-				onChange={props.setValue}
+				value={props.value}
+				onInput={(e: any) => props.setValue(e.target.value)}
 			/>
 		</div>
 	);
