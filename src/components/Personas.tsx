@@ -6,7 +6,7 @@ export function Personas() {
 	const appSnapshot = useSnapshot(appSet);
 
 	return (
-		<div class="flex flex-row gap-4">
+		<div class="flex flex-row gap-8">
 			<PersonaIcon
 				click={() => (appSet.index = 0)}
 				title={"FU"}

@@ -3,7 +3,7 @@ import { Personas } from "./components/Personas";
 
 export function App() {
 	return (
-		<div class="min-h-screen min-w-screen flex flex-col select-none">
+		<div class="min-h-screen min-w-screen flex flex-col select-none text-neutral-700">
 			<nav class="p-8 flex flex-row justify-between w-full">
 				<h1 class="text-2xl font-bold">
 					gpt<span class="text-red-600">Persona</span>
@@ -22,7 +22,7 @@ export function App() {
 			</nav>
 
 			<main class="grow flex items-center justify-center">
-				<div class="flex-center gap-4 border border-black shadow-sm shadow-red-600 p-4 rounded-lg">
+				<div class="flex-center p-4 rounded-lg border-2 border-neutral-300">
 					<Form />
 					<div class="flex-center flex-col gap-2">
 						<button class="p-1 flex-center rounded-lg border border-black shadow-sm shadow-red-600 active:bg-red-600 active:text-white transition-all">

@@ -6,8 +6,8 @@ export function PersonaIcon(props: {
 	return (
 		<div
 			onClick={() => props.click()}
-			class={`cursor-pointer w-16 h-16 flex-center rounded-xl border border-black shadow-sm shadow-red-600 active:bg-red-600 active:text-white transition-all" +
-				${props.isCurrent ? "bg-red-600 text-white" : "bg-white"}
+			class={`cursor-pointer w-16 h-16 flex-center rounded-full border-2 transition-all
+				${props.isCurrent ? "border-red-600" : "border-neutral-300"}
 				`}
 		>
 			<h1 class="text-2xl font-bold">{props.title}</h1>
