@@ -1,6 +1,7 @@
 import { useSnapshot } from "valtio";
 import { Form } from "./components/Form";
 import { Personas } from "./components/Personas";
+import { Preview } from "./components/Preview";
 import { appSet, getPersonaPrompt, personasSet } from "./state";
 
 export function App() {
@@ -27,7 +28,7 @@ export function App() {
 			</nav>
 
 			<main class="grow flex items-center justify-center">
-				<div class="flex-center p-4 rounded-lg border-2 border-neutral-300 gap-4">
+				<div class="flex-center p-4 rounded-lg border-2 border-neutral-200 gap-4">
 					<Form />
 					{/* icons */}
 					<div class="flex-center flex-col gap-2">
@@ -41,10 +42,7 @@ export function App() {
 							{/* <Icon icon="mdi-light:dots-horizontal" class="h-8 w-8" /> */}
 						</button>
 					</div>
-					{/* preview */}
-					<div class={"max-w-lg"}>
-						{getPersonaPrompt(personasRead[appRead.index])}
-					</div>
+					<Preview></Preview>
 				</div>
 			</main>
 
