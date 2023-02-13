@@ -1,7 +1,12 @@
+import { useSnapshot } from "valtio";
 import { Form } from "./components/Form";
 import { Personas } from "./components/Personas";
+import { appSet, getPersonaPrompt, personasSet } from "./state";
 
 export function App() {
+	const personasRead = useSnapshot(personasSet);
+	const appRead = useSnapshot(appSet);
+
 	return (
 		<div class="min-h-screen min-w-screen flex flex-col select-none text-neutral-700">
 			<nav class="p-8 flex flex-row justify-between w-full">
@@ -22,8 +27,9 @@ export function App() {
 			</nav>
 
 			<main class="grow flex items-center justify-center">
-				<div class="flex-center p-4 rounded-lg border-2 border-neutral-300">
+				<div class="flex-center p-4 rounded-lg border-2 border-neutral-300 gap-4">
 					<Form />
+					{/* icons */}
 					<div class="flex-center flex-col gap-2">
 						<button class="p-1 flex-center rounded-lg border border-black shadow-sm shadow-red-600 active:bg-red-600 active:text-white transition-all">
 							{/* <Icon icon="mdi-light:delete" class="h-8 w-8" /> */}
@@ -35,7 +41,10 @@ export function App() {
 							{/* <Icon icon="mdi-light:dots-horizontal" class="h-8 w-8" /> */}
 						</button>
 					</div>
-					<div>Preview</div>
+					{/* preview */}
+					<div class={"max-w-lg"}>
+						{getPersonaPrompt(personasRead[appRead.index])}
+					</div>
 				</div>
 			</main>
 
