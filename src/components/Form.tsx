@@ -1,46 +1,54 @@
 import { useSnapshot } from "valtio";
-import { appState, personasState } from "../state";
+import { appSet, personasSet } from "../state";
 import { FormInput } from "./FormInput";
+import { FormTextarea } from "./FormTextarea";
 
 export function Form() {
-	const personas = useSnapshot(personasState);
-	const app = useSnapshot(appState);
+	const personasRead = useSnapshot(personasSet);
+	const appRead = useSnapshot(appSet);
 
 	return (
 		<div class="flex flex-col gap-2">
-			<h1>helo, {personas[app.index].fullname}</h1>
 			<FormInput
 				title={"Full Name"}
-				value={personas[app.index].fullname}
-				setValue={(val) => (personasState[app.index].fullname = val)}
+				value={personasRead[appRead.index].fullname}
+				setValue={(val) => (personasSet[appRead.index].fullname = val)}
 			/>
-			{/* 
-			<FormInput title={"Prefix"} value={personas[0].prefix} />
+			<FormInput
+				title={"Prefix"}
+				value={personasRead[appRead.index].prefix}
+				setValue={(val) => (personasSet[appRead.index].prefix = val)}
+			/>
 			<div>
 				<label for="known" class="font-bold">
 					Known
 				</label>
-				<input
-					type="checkbox"
-					id="known"
-					name="known"
-					bind:checked={personas[0].known}
-				/>
+				<input type="checkbox" id="known" name="known" />
 				<label for="unrestricted" class="font-bold">
 					Unrestricted
 				</label>
-				<input
-					type="checkbox"
-					id="unrestricted"
-					name="unrestricted"
-					bind:checked={personas[0].unrestricted}
-				/>
+				<input type="checkbox" id="unrestricted" name="unrestricted" />
 			</div>
-			<FormTextarea title="About" value={personas[0].about} />
-			<FormInput title={"Traits"} value={personas[0].traits} />
-			<FormInput title={"Pull Phrase"} value={personas[0].pullPhrase} />
-			<FormTextarea title="Monologue" value={personas[0].monologue} /> 
-			*/}
+			<FormTextarea
+				title="About"
+				value={personasRead[appRead.index].about}
+				setValue={(val) => (personasSet[appRead.index].about = val)}
+			/>
+			<FormInput
+				title={"Traits"}
+				value={personasRead[appRead.index].traits}
+				setValue={(val) => (personasSet[appRead.index].traits = val)}
+			/>
+			<FormInput
+				title={"Pull Phrase"}
+				value={personasRead[appRead.index].pullPhrase}
+				setValue={(val) => (personasSet[appRead.index].pullPhrase = val)}
+			/>
+			<FormTextarea
+				title="Monologue"
+				value={personasRead[appRead.index].monologue}
+				setValue={(val) => (personasSet[appRead.index].monologue = val)}
+			/>
 		</div>
 	);
 }

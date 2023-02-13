@@ -17,23 +17,23 @@ let defaultEntry = {
 	// erotic: false,
 };
 
-export const appState = proxy(
+export const appSet = proxy(
 	readLocal("app") || {
 		index: 0,
 	},
 );
-subscribe(appState, () => {
-	setLocal("app", appState);
+subscribe(appSet, () => {
+	setLocal("app", appSet);
 });
 
-export const personasState = proxy(
+export const personasSet = proxy(
 	readLocal("personas") || [
 		defaultEntry,
 		{ ...defaultEntry, fullname: "Second" },
 	],
 );
-subscribe(personasState, () => {
-	setLocal("personas", personasState);
+subscribe(personasSet, () => {
+	setLocal("personas", personasSet);
 });
 
 export function getPersonaPrompt(persona: typeof defaultEntry) {
