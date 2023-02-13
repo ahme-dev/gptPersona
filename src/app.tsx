@@ -1,5 +1,5 @@
 import { Form } from "./components/Form";
-import { PersonaIcon } from "./components/PersonaIcon";
+import { Personas } from "./components/Personas";
 
 export function App() {
 	return (
@@ -8,10 +8,7 @@ export function App() {
 				<h1 class="text-2xl font-bold">
 					gpt<span class="text-red-600">Persona</span>
 				</h1>
-				<div class="flex flex-row gap-4">
-					<PersonaIcon title={"FU"} isCurrent={false} />
-					<PersonaIcon title={"A"} isCurrent={true} />
-				</div>
+				<Personas></Personas>
 				<div>
 					<a
 						target="_blank"
@@ -23,6 +20,7 @@ export function App() {
 					</a>
 				</div>
 			</nav>
+
 			<main class="grow flex items-center justify-center">
 				<div class="flex-center gap-4 border border-black shadow-sm shadow-red-600 p-4 rounded-lg">
 					<Form />
@@ -40,6 +38,7 @@ export function App() {
 					<div>Preview</div>
 				</div>
 			</main>
+
 			<footer class="p-8 flex flex-col gap-4">
 				<div class="flex flex-row gap-8">
 					<h1 class="text-lg font-bold border-b-2 border-b-black">

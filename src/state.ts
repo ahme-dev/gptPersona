@@ -19,7 +19,10 @@ let defaultEntry = {
 export const appState = proxy({
 	index: 0,
 });
-export const personasState = proxy([defaultEntry]);
+export const personasState = proxy([
+	defaultEntry,
+	{ ...defaultEntry, fullname: "Second" },
+]);
 
 export function getPersonaPrompt(persona: typeof defaultEntry) {
 	let prompt = `
