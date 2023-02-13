@@ -1,4 +1,5 @@
-import { proxy } from "valtio";
+import { proxy, subscribe } from "valtio";
+import { readLocal, setLocal } from "./utils";
 
 let defaultEntry = {
 	fullname: "John Doe",
@@ -16,13 +17,24 @@ let defaultEntry = {
 	// erotic: false,
 };
 
-export const appState = proxy({
-	index: 0,
+export const appState = proxy(
+	readLocal("app") || {
+		index: 0,
+	},
+);
+subscribe(appState, () => {
+	setLocal("app", appState);
 });
-export const personasState = proxy([
-	defaultEntry,
-	{ ...defaultEntry, fullname: "Second" },
-]);
+
+export const personasState = proxy(
+	readLocal("personas") || [
+		defaultEntry,
+		{ ...defaultEntry, fullname: "Second" },
+	],
+);
+subscribe(personasState, () => {
+	setLocal("personas", personasState);
+});
 
 export function getPersonaPrompt(persona: typeof defaultEntry) {
 	let prompt = `
