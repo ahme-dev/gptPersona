@@ -41,6 +41,7 @@ export let personasSet: {
 	index: number;
 	list: Persona[];
 	removeFromList: () => void;
+	addToList: () => void;
 } = proxy(
 	readLocal("personas") || {
 		index: 0,
@@ -50,6 +51,21 @@ export let personasSet: {
 				(person, i) => i !== personasSet.index,
 			);
 			personasSet.index = 0;
+		},
+		addToList: () => {
+			personasSet.list = [
+				...personasSet.list,
+				{
+					fullname: "",
+					prefix: "",
+					known: false,
+					unrestricted: false,
+					about: "",
+					monologue: "",
+					pullPhrase: "",
+					traits: "",
+				},
+			];
 		},
 	},
 );

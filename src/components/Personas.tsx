@@ -20,7 +20,7 @@ export function Personas() {
 					</PersonaIcon>
 				);
 			})}
-			<PersonaIcon click={() => {}} isCurrent={false}>
+			<PersonaIcon click={() => personasSet.addToList()} isCurrent={false}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 24 24"
