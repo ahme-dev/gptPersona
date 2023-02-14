@@ -54,11 +54,12 @@ export const removeFromList = () => {
 	personasSet.list = personasSet.list.filter(
 		(person, i) => i !== personasSet.index,
 	);
-	personasSet.index = 0;
+	personasSet.index = personasSet.index !== 0 ? personasSet.index - 1 : 0;
 };
 
 export const addToList = () => {
 	personasSet.list = [...personasSet.list, makeDefaultEntry()];
+	personasSet.index = personasSet.list.length - 1;
 };
 
 export function getPersonaPrompt(persona: Persona) {
