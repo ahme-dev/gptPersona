@@ -28,7 +28,7 @@ let defaultEntry = {
 	// erotic: false,
 };
 
-export const appSet: { index: number } = proxy(
+export let appSet: { index: number } = proxy(
 	readLocal("app") || {
 		index: 0,
 	},
@@ -37,11 +37,21 @@ subscribe(appSet, () => {
 	setLocal("app", appSet);
 });
 
-export const personasSet: Persona[] = proxy(
-	readLocal("personas") || [
-		defaultEntry,
-		{ ...defaultEntry, fullname: "Second" },
-	],
+export let personasSet: {
+	index: number;
+	list: Persona[];
+	removeFromList: () => void;
+} = proxy(
+	readLocal("personas") || {
+		index: 0,
+		list: [defaultEntry, { ...defaultEntry, fullname: "Second" }],
+		removeFromList: () => {
+			personasSet.list = personasSet.list.filter(
+				(person, i) => i !== personasSet.index,
+			);
+			personasSet.index = 0;
+		},
+	},
 );
 subscribe(personasSet, () => {
 	setLocal("personas", personasSet);

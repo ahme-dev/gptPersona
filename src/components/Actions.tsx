@@ -1,15 +1,14 @@
 import { useSnapshot } from "valtio";
 import { useState } from "preact/hooks";
-import { appSet, getPersonaPrompt, personasSet } from "../state";
+import { getPersonaPrompt, personasSet } from "../state";
 
 export function Actions() {
 	const personasRead = useSnapshot(personasSet);
-	const appRead = useSnapshot(appSet);
 
 	const [copied, setCopied] = useState(false);
 
 	async function copyPrompt() {
-		let { all } = getPersonaPrompt(personasRead[appRead.index]);
+		let { all } = getPersonaPrompt(personasRead.list[personasRead.index]);
 		try {
 			await navigator.clipboard.writeText(all);
 			setCopied(true);
@@ -19,8 +18,15 @@ export function Actions() {
 		}
 	}
 
+	function removePersona() {
+		personasSet.removeFromList();
+	}
+
 	return (
-		<div class="self-center flex-center flex-col gap-2">
+		<div
+			onClick={() => removePersona()}
+			class="self-center flex-center flex-col gap-2"
+		>
 			<button class="p-1 flex-center rounded-lg border-2 border-neutral-200 active:border-red-600 transition-all">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

@@ -1,11 +1,10 @@
 import { useSnapshot } from "valtio";
-import { appSet, getPersonaPrompt, personasSet } from "../state";
+import { getPersonaPrompt, personasSet } from "../state";
 
 export function Preview() {
 	const personasRead = useSnapshot(personasSet);
-	const appRead = useSnapshot(appSet);
 
-	let f = getPersonaPrompt(personasRead[appRead.index]);
+	let f = getPersonaPrompt(personasRead.list[personasRead.index]);
 
 	return (
 		<div

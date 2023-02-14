@@ -1,7 +1,9 @@
+import { VNode } from "preact";
+
 export function PersonaIcon(props: {
-	title: string;
 	isCurrent: boolean;
 	click: () => void;
+	children: VNode;
 }) {
 	return (
 		<div
@@ -10,7 +12,8 @@ export function PersonaIcon(props: {
 				${props.isCurrent ? "border-red-600" : "border-neutral-300"}
 				`}
 		>
-			<h1 class="text-lg sm:text-2xl font-bold">{props.title}</h1>
+			{props.children}
+			{/* <h1 class="text-lg sm:text-2xl font-bold">{props.title}</h1> */}
 		</div>
 	);
 }
