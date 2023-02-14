@@ -6,7 +6,7 @@ export function PersonaIcon(props: {
 	return (
 		<div
 			onClick={() => props.click()}
-			class={`cursor-pointer w-16 h-16 flex-center rounded-full border-2 transition-all
+			class={`cursor-pointer w-16 h-16 flex-center rounded-full border-2 active:border-red-600 transition-all
 				${props.isCurrent ? "border-red-600" : "border-neutral-300"}
 				`}
 		>

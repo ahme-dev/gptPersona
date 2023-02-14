@@ -4,13 +4,11 @@ export function FormInput(props: {
 	setValue: (val: any) => void;
 }) {
 	return (
-		<div class="flex flex-row gap-2 p-2 border-b-neutral-200 border-b-2 focus-within:border-b-red-600 transition-all">
-			<label for={props.title.toLowerCase()} class="font-bold shrink-0">
-				{props.title + ":"}
-			</label>
+		<div class="flex flex-row gap-2 p-2 border-b-neutral-200 border-2 rounded-xl focus-within:border-red-600 transition-all">
 			<input
 				type="text"
 				name={props.title.toLowerCase()}
+				placeholder={props.title}
 				value={props.value}
 				onInput={(e: any) => props.setValue(e.target.value)}
 			/>

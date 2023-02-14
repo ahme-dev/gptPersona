@@ -10,7 +10,7 @@ export function Preview() {
 	return (
 		<div
 			class={
-				"flex flex-col gap-2 max-w-md italic rounded-xl p-4 bg-neutral-100 select-text selection:bg-red-600 selection:text-neutral-100"
+				"flex flex-col gap-2 max-w-md italic rounded-xl p-4 bg-neutral-100 select-text selection:bg-red-600 selection:text-neutral-100 h-full"
 			}
 		>
 			<p>{f.info}</p>
