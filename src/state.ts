@@ -43,6 +43,9 @@ export const personasSet: Persona[] = proxy(
 		{ ...defaultEntry, fullname: "Second" },
 	],
 );
+subscribe(personasSet, () => {
+	setLocal("personas", personasSet);
+});
 
 export function getPersonaPrompt(persona: Persona) {
 	let fullname =
