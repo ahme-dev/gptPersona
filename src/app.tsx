@@ -1,14 +1,9 @@
-import { useSnapshot } from "valtio";
 import { Form } from "./components/Form";
 import { Personas } from "./components/Personas";
 import { Preview } from "./components/Preview";
 import { Actions } from "./components/Actions";
-import { appSet, personasSet } from "./state";
 
 export function App() {
-	const personasRead = useSnapshot(personasSet);
-	const appRead = useSnapshot(appSet);
-
 	return (
 		<div class="min-h-screen min-w-screen flex flex-col select-none text-neutral-700">
 			<nav class="p-8 flex flex-row justify-between w-full">

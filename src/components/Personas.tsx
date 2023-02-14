@@ -1,5 +1,6 @@
 import { useSnapshot } from "valtio";
 import { appSet, personasSet } from "../state";
+import { getFirstTwoLetters } from "../utils";
 import { PersonaIcon } from "./PersonaIcon";
 
 export function Personas() {
@@ -12,7 +13,7 @@ export function Personas() {
 				return (
 					<PersonaIcon
 						click={() => (appSet.index = i)}
-						title={persona.fullname[0] + persona.fullname[1]}
+						title={getFirstTwoLetters(persona.fullname, "GP")}
 						isCurrent={appRead.index === i ? true : false}
 					/>
 				);
