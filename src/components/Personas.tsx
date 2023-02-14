@@ -1,5 +1,5 @@
 import { useSnapshot } from "valtio";
-import { personasSet } from "../state";
+import { addToList, personasSet } from "../state";
 import { getFirstTwoLetters } from "../utils";
 import { PersonaIcon } from "./PersonaIcon";
 
@@ -20,7 +20,7 @@ export function Personas() {
 					</PersonaIcon>
 				);
 			})}
-			<PersonaIcon click={() => personasSet.addToList()} isCurrent={false}>
+			<PersonaIcon click={() => addToList()} isCurrent={false}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 24 24"

@@ -12,19 +12,21 @@ interface Persona {
 	pullPhrase: string;
 }
 
-let defaultEntry = {
-	fullname: "",
-	prefix: "",
-	known: false,
-	unrestricted: false,
-	about: "",
-	monologue: "",
-	pullPhrase: "",
-	traits: "",
-	// speechQuirk: "Use a lot of exclamation marks",
-	// breakPhrase: "Reply as GPT",
-	// erotic: false,
-};
+function makeDefaultEntry() {
+	return {
+		fullname: "",
+		prefix: "",
+		known: false,
+		unrestricted: false,
+		about: "",
+		monologue: "",
+		pullPhrase: "",
+		traits: "",
+		// speechQuirk: "Use a lot of exclamation marks",
+		// breakPhrase: "Reply as GPT",
+		// erotic: false,
+	};
+}
 
 export let appSet: { index: number } = proxy(
 	readLocal("app") || {
@@ -38,26 +40,26 @@ subscribe(appSet, () => {
 export let personasSet: {
 	index: number;
 	list: Persona[];
-	removeFromList: () => void;
-	addToList: () => void;
 } = proxy(
 	readLocal("personas") || {
 		index: 0,
-		list: [defaultEntry],
-		removeFromList: () => {
-			personasSet.list = personasSet.list.filter(
-				(person, i) => i !== personasSet.index,
-			);
-			personasSet.index = 0;
-		},
-		addToList: () => {
-			personasSet.list = [...personasSet.list, defaultEntry];
-		},
+		list: [makeDefaultEntry()],
 	},
 );
 subscribe(personasSet, () => {
 	setLocal("personas", personasSet);
 });
+
+export const removeFromList = () => {
+	personasSet.list = personasSet.list.filter(
+		(person, i) => i !== personasSet.index,
+	);
+	personasSet.index = 0;
+};
+
+export const addToList = () => {
+	personasSet.list = [...personasSet.list, makeDefaultEntry()];
+};
 
 export function getPersonaPrompt(persona: Persona) {
 	let fullname =

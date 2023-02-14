@@ -1,6 +1,6 @@
 import { useSnapshot } from "valtio";
 import { useState } from "preact/hooks";
-import { getPersonaPrompt, personasSet } from "../state";
+import { getPersonaPrompt, personasSet, removeFromList } from "../state";
 
 export function Actions() {
 	const personasRead = useSnapshot(personasSet);
@@ -19,7 +19,7 @@ export function Actions() {
 	}
 
 	function removePersona() {
-		personasSet.removeFromList();
+		removeFromList();
 	}
 
 	return (
