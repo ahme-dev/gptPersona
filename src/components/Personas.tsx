@@ -8,7 +8,7 @@ export function Personas() {
 	const personasRead = useSnapshot(personasSet);
 
 	return (
-		<div class="flex flex-row gap-8">
+		<div class="flex flex-row gap-4 sm:gap-8">
 			{personasRead.map((persona, i) => {
 				return (
 					<PersonaIcon
