@@ -29,7 +29,7 @@ export function App() {
 			</nav>
 
 			<main class="grow flex items-center justify-center">
-				<div class="flex-center p-4 rounded-lg border-2 border-neutral-200 gap-4">
+				<div class="flex items-start p-4 rounded-lg border-2 border-neutral-200 gap-4">
 					<Form />
 					<Actions></Actions>
 					<Preview></Preview>

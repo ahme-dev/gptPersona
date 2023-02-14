@@ -1,5 +1,6 @@
 import { useSnapshot } from "valtio";
 import { appSet, personasSet } from "../state";
+import { FormCheck } from "./FormCheck";
 import { FormInput } from "./FormInput";
 import { FormTextarea } from "./FormTextarea";
 
@@ -19,15 +20,23 @@ export function Form() {
 				value={personasRead[appRead.index].prefix}
 				setValue={(val) => (personasSet[appRead.index].prefix = val)}
 			/>
-			<div>
-				<label for="known" class="font-bold">
-					Known
-				</label>
-				<input type="checkbox" id="known" name="known" />
-				<label for="unrestricted" class="font-bold">
-					Unrestricted
-				</label>
-				<input type="checkbox" id="unrestricted" name="unrestricted" />
+			<div class="flex flex-row gap-2">
+				<FormCheck
+					title={"Known"}
+					value={personasRead[appRead.index].known}
+					toggleValue={() =>
+						(personasSet[appRead.index].known =
+							!personasRead[appRead.index].known)
+					}
+				></FormCheck>
+				<FormCheck
+					title={"Unrestricted"}
+					value={personasRead[appRead.index].unrestricted}
+					toggleValue={() =>
+						(personasSet[appRead.index].unrestricted =
+							!personasRead[appRead.index].unrestricted)
+					}
+				></FormCheck>
 			</div>
 			<FormTextarea
 				title="About"

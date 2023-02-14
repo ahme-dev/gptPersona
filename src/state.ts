@@ -68,8 +68,10 @@ export function getPersonaPrompt(persona: typeof defaultEntry) {
 		about +
 		traits +
 		"\n\n" +
-		known +
 		unrestricted +
+		"\n\n" +
+		known +
+		"\n\n" +
 		prefix +
 		"\n\n" +
 		monologuePre +
@@ -81,7 +83,9 @@ export function getPersonaPrompt(persona: typeof defaultEntry) {
 
 	return {
 		info: fullname + about + traits,
-		checks: known + unrestricted + prefix,
+		unrestricted: unrestricted,
+		known: known,
+		prefix: prefix,
 		monoPre: monologuePre,
 		mono: monologue,
 		pull: pullPhrasePre + pullPhrase,

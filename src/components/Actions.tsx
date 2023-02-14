@@ -1,6 +1,6 @@
 export function Actions() {
 	return (
-		<div class="flex-center flex-col gap-2">
+		<div class="self-center flex-center flex-col gap-2">
 			<button class="p-1 flex-center rounded-lg border-2 border-neutral-200 active:border-red-600 transition-all">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
