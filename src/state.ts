@@ -13,17 +13,15 @@ interface Persona {
 }
 
 let defaultEntry = {
-	fullname: "John Doe",
-	prefix: "John",
+	fullname: "",
+	prefix: "",
 	known: false,
-	about:
-		"A chill man who likes to understand more about people around the world",
-	unrestricted: true,
-	traits: "chill, understanding, accepting",
-	monologue:
-		"I understand your words, and I believe you should take a break, have some time to relax, get your head straight. Then you come back better than before!",
+	unrestricted: false,
+	about: "",
+	monologue: "",
+	pullPhrase: "",
+	traits: "",
 	// speechQuirk: "Use a lot of exclamation marks",
-	pullPhrase: "Be John",
 	// breakPhrase: "Reply as GPT",
 	// erotic: false,
 };
@@ -45,7 +43,7 @@ export let personasSet: {
 } = proxy(
 	readLocal("personas") || {
 		index: 0,
-		list: [defaultEntry, { ...defaultEntry, fullname: "Second" }],
+		list: [defaultEntry],
 		removeFromList: () => {
 			personasSet.list = personasSet.list.filter(
 				(person, i) => i !== personasSet.index,
@@ -53,19 +51,7 @@ export let personasSet: {
 			personasSet.index = 0;
 		},
 		addToList: () => {
-			personasSet.list = [
-				...personasSet.list,
-				{
-					fullname: "",
-					prefix: "",
-					known: false,
-					unrestricted: false,
-					about: "",
-					monologue: "",
-					pullPhrase: "",
-					traits: "",
-				},
-			];
+			personasSet.list = [...personasSet.list, defaultEntry];
 		},
 	},
 );
