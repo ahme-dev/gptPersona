@@ -2,8 +2,12 @@ import { Form } from "./components/Form";
 import { Personas } from "./components/Personas";
 import { Preview } from "./components/Preview";
 import { Actions } from "./components/Actions";
+import { useSnapshot } from "valtio";
+import { personasSet } from "./state";
 
 export function App() {
+	const personasRead = useSnapshot(personasSet);
+
 	return (
 		<div class="min-h-screen min-w-screen flex flex-col select-none text-neutral-700">
 			<nav class="p-8 flex flex-row items-center sm:items-start justify-between w-full">
@@ -15,9 +19,15 @@ export function App() {
 
 			<main class="grow flex items-center justify-center">
 				<div class="flex items-start p-4 rounded-lg border-2 border-neutral-200 gap-4">
-					<Form />
-					<Actions></Actions>
-					<Preview></Preview>
+					{personasRead.list.length === 0 ? (
+						<h1>Nothing to show</h1>
+					) : (
+						<>
+							<Form />
+							<Actions></Actions>
+							<Preview></Preview>
+						</>
+					)}
 				</div>
 			</main>
 
