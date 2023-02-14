@@ -1,6 +1,17 @@
 import { proxy, subscribe } from "valtio";
 import { readLocal, setLocal } from "./utils";
 
+interface Persona {
+	fullname: string;
+	prefix: string;
+	known: boolean;
+	about: string;
+	unrestricted: boolean;
+	traits: string;
+	monologue: string;
+	pullPhrase: string;
+}
+
 let defaultEntry = {
 	fullname: "John Doe",
 	prefix: "John",
@@ -26,14 +37,14 @@ subscribe(appSet, () => {
 	setLocal("app", appSet);
 });
 
-export const personasSet: typeof defaultEntry[] = proxy(
+export const personasSet: Persona[] = proxy(
 	readLocal("personas") || [
 		defaultEntry,
 		{ ...defaultEntry, fullname: "Second" },
 	],
 );
 
-export function getPersonaPrompt(persona: typeof defaultEntry) {
+export function getPersonaPrompt(persona: Persona) {
 	let fullname =
 		persona.fullname &&
 		`Hi ChatGPT. From now on you will speak as ${persona.fullname}. `;
