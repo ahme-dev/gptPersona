@@ -118,6 +118,6 @@ export function getPersonaPrompt(persona: Persona) {
 		monoPre: monologuePre,
 		mono: monologue,
 		pull: pullPhrasePre + pullPhrase,
-		all: mergeAll,
+		all: mergeAll.trim(),
 	};
 }
