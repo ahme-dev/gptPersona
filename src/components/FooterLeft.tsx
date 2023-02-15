@@ -54,8 +54,9 @@ export function FooterLeft() {
 					</p>
 					<h1 class={"font-bold"}>How to use it?</h1>
 					<p class={"mb-2"}>
-						Just input your data and use the generated prompt to start a
-						conversation with ChatGPT.
+						Try out the default entry of George {"RIP"} with ChatGPT, or click
+						on the add button and input your data then use the generated prompt
+						to start a conversation with ChatGPT.
 					</p>
 					<h1 class={"font-bold"}>Was this section generated using ChatGPT?</h1>
 					<p class={"mb-2"}>Yes, it was.</p>
