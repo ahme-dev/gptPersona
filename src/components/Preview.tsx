@@ -1,10 +1,10 @@
 import { useSnapshot } from "valtio";
-import { getPersonaPrompt, personasSet } from "../state";
+import { generatePrompt, personasSet } from "../state";
 
 export function Preview() {
 	const personasRead = useSnapshot(personasSet);
 
-	let f = getPersonaPrompt(personasRead.list[personasRead.index]);
+	let f = generatePrompt(personasRead.list[personasRead.index]);
 
 	return (
 		<div

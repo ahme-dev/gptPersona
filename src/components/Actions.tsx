@@ -1,6 +1,6 @@
 import { useSnapshot } from "valtio";
 import { useState } from "preact/hooks";
-import { getPersonaPrompt, personasSet, removeFromList } from "../state";
+import { generatePrompt, personasSet, removeFromList } from "../state";
 
 export function Actions() {
 	const personasRead = useSnapshot(personasSet);
@@ -8,7 +8,7 @@ export function Actions() {
 	const [copied, setCopied] = useState(false);
 
 	async function copyPrompt() {
-		let { all } = getPersonaPrompt(personasRead.list[personasRead.index]);
+		let { all } = generatePrompt(personasRead.list[personasRead.index]);
 		try {
 			await navigator.clipboard.writeText(all);
 			setCopied(true);
