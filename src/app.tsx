@@ -4,18 +4,18 @@ import { Preview } from "./components/Preview";
 import { Actions } from "./components/Actions";
 import { useSnapshot } from "valtio";
 import { personasSet } from "./state";
+import { FooterLeft } from "./components/FooterLeft";
 
 export function App() {
 	const personasRead = useSnapshot(personasSet);
-
 	return (
 		<div class="min-h-screen min-w-screen flex flex-col select-none text-neutral-700 dark:bg-neutral-900 dark:text-neutral-100">
-			<nav class="p-8 flex flex-row items-center sm:items-start justify-between w-full">
-				<h1 class="text-xl  sm:text-2xl font-bold">
+			<header class="p-4 sm:p-8 flex flex-row items-center sm:items-start justify-between w-full">
+				<h1 class="text-xl sm:text-2xl font-bold">
 					gpt<span class="text-red-600">Persona</span>
 				</h1>
 				<Personas></Personas>
-			</nav>
+			</header>
 
 			<main class="grow flex items-center justify-center">
 				<div class="flex items-start p-4 rounded-lg border-2 border-neutral-200 dark:border-neutral-700 gap-4">
@@ -31,14 +31,32 @@ export function App() {
 				</div>
 			</main>
 
-			<footer class="p-8 flex flex-col gap-4">
-				<div class="flex flex-row gap-8">
-					<h1 class="text-lg font-bold border-b-2 border-b-neutral-700">
-						Disclaimer
-					</h1>
-					<h1 class="text-lg font-bold">FAQ</h1>
+			<footer
+				class={"p-4 sm:p-8 flex flex-col sm:flex-row justify-between gap-4"}
+			>
+				<FooterLeft></FooterLeft>
+				<div class={"self-start flex flex-row gap-2 sm:gap-4 italic py-2"}>
+					{[
+						{
+							link: "https://github.com/ahmeddots",
+							title: "ahmed.systems 🌐",
+						},
+						{
+							link: "https://github.com/ahmeddots/gptpersona",
+							title: "open.source ♥️",
+						},
+					].map((item) => {
+						return (
+							<a
+								href={item.link}
+								class="text-sm cursor-pointer"
+								target={"_blank"}
+							>
+								{item.title}
+							</a>
+						);
+					})}
 				</div>
-				<div>Body (Switched)</div>
 			</footer>
 		</div>
 	);

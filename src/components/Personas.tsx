@@ -7,7 +7,7 @@ export function Personas() {
 	const personasRead = useSnapshot(personasSet);
 
 	return (
-		<div class="flex flex-row gap-4 sm:gap-8">
+		<nav class="flex flex-row gap-4 sm:gap-8">
 			{personasRead.list.map((persona, i) => {
 				return (
 					<PersonaIcon
@@ -34,6 +34,6 @@ export function Personas() {
 					/>
 				</svg>
 			</PersonaIcon>
-		</div>
+		</nav>
 	);
 }
