@@ -14,10 +14,22 @@ export function setLocal(key: string, value: any): void {
 	localStorage.setItem(key, JSON.stringify(value));
 }
 
-export function getFirstTwoLetters(str: string, fallback: string): string {
+export function getFirstTwoLetters(str: string, fallbackStr: string): string {
+	// clean up the string
+	str = str.trim();
+
+	// if has more than one word
+	if (str.includes(" ")) {
+		let words = str.split(" ");
+		let firstLetters = words.map((word) => word[0]);
+		return firstLetters[0] + firstLetters[1];
+	}
+
+	// otherwise if one word
+
 	let hasTwoLetters = str[0] && str[1];
 
-	if (!hasTwoLetters) return fallback;
+	if (!hasTwoLetters) return fallbackStr;
 
 	return str[0] + str[1];
 }
