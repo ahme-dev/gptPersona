@@ -12,6 +12,7 @@
 			rel="stylesheet"
 		/>
 		<style>
+			/* tailwind */
 			@tailwind base;
 			@tailwind components;
 			@tailwind utilities;
@@ -23,11 +24,14 @@
 				}
 			}
 
+			/* body */
 			body {
 				font-family: "Montserrat", sans-serif;
 				background-color: #fefefe;
 				color: #121212;
 			}
+
+			/* sane defaults */
 			input,
 			textarea {
 				width: 100%;
@@ -41,8 +45,8 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body class="bodyExtra">
 		<div id="app"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+		<script type="module" src="/src/main.tsx"></script>
+	</body>
 </html>

@@ -26,7 +26,7 @@ export function Actions() {
 		<div class="self-center flex-center flex-col gap-2">
 			<button
 				onClick={() => removePersona()}
-				class="p-1 flex-center rounded-lg border-2 border-neutral-200 active:border-red-600 transition-all"
+				class="p-1 flex-center rounded-lg border-2 border-neutral-200 dark:border-neutral-700 active:border-red-600 transition-all"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,7 @@ export function Actions() {
 			</button>
 			<button
 				onClick={copyPrompt}
-				class="p-1 flex-center rounded-lg border-2 border-neutral-200 active:border-red-600 transition-all"
+				class="p-1 flex-center rounded-lg border-2 border-neutral-200 dark:border-neutral-700 active:border-red-600 transition-all"
 			>
 				{copied ? (
 					<svg
@@ -78,7 +78,7 @@ export function Actions() {
 					</svg>
 				)}
 			</button>
-			<button class="p-1 flex-center rounded-lg border-2 border-neutral-200 active:border-red-600 transition-all">
+			<button class="p-1 flex-center rounded-lg border-2 border-neutral-200 dark:border-neutral-700 active:border-red-600 transition-all">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 24 24"

@@ -9,7 +9,7 @@ export function Preview() {
 	return (
 		<div
 			class={
-				"hidden sm:flex flex-col gap-2 max-w-md italic rounded-xl p-4 bg-neutral-100 select-text selection:bg-red-600 selection:text-neutral-100 self-stretch overflow-clip"
+				"hidden sm:flex flex-col gap-2 max-w-md italic rounded-xl p-4 bg-neutral-100 dark:bg-neutral-800 select-text selection:bg-red-600 selection:text-neutral-100 self-stretch overflow-clip"
 			}
 		>
 			<p>{f.info}</p>

@@ -9,7 +9,7 @@ export function App() {
 	const personasRead = useSnapshot(personasSet);
 
 	return (
-		<div class="min-h-screen min-w-screen flex flex-col select-none text-neutral-700">
+		<div class="min-h-screen min-w-screen flex flex-col select-none text-neutral-700 dark:bg-neutral-900 dark:text-neutral-100">
 			<nav class="p-8 flex flex-row items-center sm:items-start justify-between w-full">
 				<h1 class="text-xl  sm:text-2xl font-bold">
 					gpt<span class="text-red-600">Persona</span>
@@ -18,7 +18,7 @@ export function App() {
 			</nav>
 
 			<main class="grow flex items-center justify-center">
-				<div class="flex items-start p-4 rounded-lg border-2 border-neutral-200 gap-4">
+				<div class="flex items-start p-4 rounded-lg border-2 border-neutral-200 dark:border-neutral-700 gap-4">
 					{personasRead.list.length === 0 ? (
 						<h1>Nothing to show</h1>
 					) : (
