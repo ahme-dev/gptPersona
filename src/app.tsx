@@ -16,7 +16,7 @@ export function App() {
 					<img
 						src={logo}
 						class={
-							"hidden sm:block rounded-full h-12 sm:h-16 border-red-600 p-1 border-2"
+							"hidden sm:block rounded-full h-12 w-12 sm:h-16 sm:w-16 border-red-600 p-1 border-2"
 						}
 					/>
 					<h1 class={"text-xl sm:text-2xl font-bold"}>

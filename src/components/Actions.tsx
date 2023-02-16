@@ -25,7 +25,7 @@ export function Actions() {
 	return (
 		<div class="self-center flex-center flex-col gap-2">
 			<button
-				label="delete button"
+				aria-label="delete persona button"
 				onClick={() => removePersona()}
 				class="p-1 flex-center rounded-lg border-2 border-neutral-200 dark:border-neutral-700 active:border-red-600 transition-all"
 			>
@@ -44,7 +44,7 @@ export function Actions() {
 			</button>
 			<button
 				onClick={copyPrompt}
-				label="copy button"
+				aria-label="copy prompt button"
 				class="p-1 flex-center rounded-lg border-2 border-neutral-200 dark:border-neutral-700 active:border-red-600 transition-all"
 			>
 				{copied ? (
@@ -81,7 +81,7 @@ export function Actions() {
 				)}
 			</button>
 			<button
-				label={"more options button"}
+				aria-label="more options button"
 				class="p-1 flex-center rounded-lg border-2 border-neutral-200 dark:border-neutral-700 active:border-red-600 transition-all"
 			>
 				<svg
