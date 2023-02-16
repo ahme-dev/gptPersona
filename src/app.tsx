@@ -5,15 +5,24 @@ import { Actions } from "./components/Actions";
 import { useSnapshot } from "valtio";
 import { personasSet } from "./state";
 import { FooterLeft } from "./components/FooterLeft";
+import logo from "./assets/logo.png";
 
 export function App() {
 	const personasRead = useSnapshot(personasSet);
 	return (
 		<div class="min-h-screen min-w-screen flex flex-col select-none text-neutral-700 dark:bg-neutral-900 dark:text-neutral-100">
 			<header class="p-4 sm:p-8 flex flex-row items-center sm:items-start justify-between w-full">
-				<h1 class="text-xl sm:text-2xl font-bold">
-					gpt<span class="text-red-600">Persona</span>
-				</h1>
+				<div class={"flex flex-row gap-4 sm:gap-8 items-center"}>
+					<img
+						src={logo}
+						class={
+							"hidden sm:block rounded-full h-12 sm:h-16 border-red-600 p-1 border-2"
+						}
+					/>
+					<h1 class={"text-xl sm:text-2xl font-bold"}>
+						gpt<span class={"text-red-600"}>Persona</span>
+					</h1>
+				</div>
 				<Personas></Personas>
 			</header>
 
