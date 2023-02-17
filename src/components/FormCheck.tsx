@@ -4,7 +4,7 @@ export function FormCheck(props: {
 	toggleValue: () => void;
 }) {
 	return (
-		<div class="flex flex-row items-center gap-2 p-2 border-neutral-200 dark:border-neutral-700 border-2 rounded-xl focus-within:border-red-600 transition-all">
+		<div class="flex flex-row items-center gap-2 p-2 border-neutral-300 dark:border-neutral-700 border-2 rounded-xl focus-within:border-red-600 transition-all">
 			<label htmlFor={props.title.toLowerCase()}>{props.title}</label>
 			<input
 				class={

@@ -4,7 +4,7 @@ export function FormInput(props: {
 	setValue: (val: any) => void;
 }) {
 	return (
-		<div class="flex flex-row gap-2 p-2 border-neutral-200 dark:border-neutral-700 border-2 rounded-xl focus-within:border-red-600 transition-all">
+		<div class="flex flex-row gap-2 p-2 border-neutral-300 dark:border-neutral-700 border-2 rounded-xl focus-within:border-red-600 transition-all">
 			<input
 				class={"form-input border-none focus:ring-0 p-0 bg-inherit"}
 				type="text"

@@ -12,7 +12,7 @@ export function PersonaIcon(props: {
 				${
 					props.isCurrent
 						? "border-red-600"
-						: "border-neutral-200 dark:border-neutral-700 text-neutral-400"
+						: "border-neutral-300 dark:border-neutral-700 text-neutral-400"
 				}
 				`}
 		>

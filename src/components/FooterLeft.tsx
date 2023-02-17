@@ -71,7 +71,7 @@ export function FooterLeft() {
 				{footers.map((item) => {
 					return (
 						<h1
-							class={`text-sm sm:text-md font-bold p-2 rounded-xl border-2 border-neutral-700 cursor-pointer active:border-red-600
+							class={`text-sm sm:text-md font-bold p-2 rounded-xl border-2 border-neutral-300 dark:border-neutral-700 cursor-pointer active:border-red-600
 									${item.id === currentFooter ? "border-red-600" : ""}`}
 							onClick={() =>
 								item.id === currentFooter

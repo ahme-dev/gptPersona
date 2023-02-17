@@ -27,7 +27,7 @@ export function Actions() {
 			<button
 				aria-label="delete persona button"
 				onClick={() => removePersona()}
-				class="p-1 flex-center rounded-lg border-2 border-neutral-200 dark:border-neutral-700 active:border-red-600 transition-all"
+				class="p-1 flex-center rounded-lg border-2 border-neutral-300 dark:border-neutral-700 active:border-red-600 transition-all"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@ export function Actions() {
 			<button
 				onClick={copyPrompt}
 				aria-label="copy prompt button"
-				class="p-1 flex-center rounded-lg border-2 border-neutral-200 dark:border-neutral-700 active:border-red-600 transition-all"
+				class="p-1 flex-center rounded-lg border-2 border-neutral-300 dark:border-neutral-700 active:border-red-600 transition-all"
 			>
 				{copied ? (
 					<svg
@@ -82,7 +82,7 @@ export function Actions() {
 			</button>
 			<button
 				aria-label="more options button"
-				class="p-1 flex-center rounded-lg border-2 border-neutral-200 dark:border-neutral-700 active:border-red-600 transition-all"
+				class="p-1 flex-center rounded-lg border-2 border-neutral-300 dark:border-neutral-700 active:border-red-600 transition-all"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

@@ -27,7 +27,7 @@ export function App() {
 			</header>
 
 			<main class="grow flex items-center justify-center">
-				<div class="flex items-start p-4 rounded-lg border-2 border-neutral-200 dark:border-neutral-700 gap-4">
+				<div class="flex items-start gap-4">
 					{personasRead.list.length === 0 ? (
 						<h1>Nothing to show</h1>
 					) : (
