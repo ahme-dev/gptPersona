@@ -2,9 +2,7 @@
 
 ChatGPT prompt generator for creating personas. **_gptPersona_** is based on DAN and some experimentation, created in order to create more personas/unshackled alter egoes of GPT like DAN.
 
-## Contribute
-
-**If you think something here could be improved don't hesitate to ask or contribute.**
+### Note: It seems ChatGPT resets the persona created within a timeframe of not using it.
 
 ## Usage
 
